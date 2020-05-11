@@ -8,6 +8,6 @@ namespace DivisasRESTAPI.Services
 {
     public interface ILiniersService
     {
-        CategoriaContainer GetLiniersDataAsync();
+        CategoriaContainer GetLiniersDataAsync(string desde, string hasta);
     }
 }

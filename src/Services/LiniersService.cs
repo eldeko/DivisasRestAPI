@@ -10,18 +10,22 @@ namespace DivisasRESTAPI.Services
     public class LiniersService : ILiniersService
     {
 
-        public CategoriaContainer GetLiniersDataAsync()
+        public CategoriaContainer GetLiniersDataAsync(string desde, string hasta)
         {
+
+            string command = "../app/BashScripts/getLiniers.sh " + " -d " + desde + " -h " + hasta;
+
             System.Diagnostics.Process pProcess = new System.Diagnostics.Process();
 
-            pProcess.StartInfo.FileName = "cmd.exe";
-            pProcess.StartInfo.WorkingDirectory = "C:\\BeautifulRestApi-master\\src\\BashScripts";
+            pProcess.StartInfo.FileName = "bash";
+         //   pProcess.StartInfo.WorkingDirectory = ".\\src\\src\\BashScripts";
             pProcess.StartInfo.CreateNoWindow = false;
             pProcess.StartInfo.RedirectStandardOutput = true;
             pProcess.StartInfo.RedirectStandardInput = true;
             pProcess.StartInfo.UseShellExecute = false;
             pProcess.Start();
-            pProcess.StandardInput.WriteLine("bash getLiniers.sh");
+            pProcess.StandardInput.WriteLine("bash");
+            pProcess.StandardInput.WriteLine(command);
             pProcess.StandardInput.Flush();
             pProcess.StandardInput.Close();
 
