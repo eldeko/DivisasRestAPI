@@ -1,6 +1,32 @@
 #!/bin/bash
 
-procDocument=$(w3m -dump "http://www.mercadodeliniers.com.ar/dll/hacienda1.dll/haciinfo000002?txtFECHAINI=10/05/2020&txtFECHAFIN=10/05/2020&CP=&LISTADO=SI")
+if [ $# -eq 0 ]
+then
+   txtFECHAINI="$(date +'%d/%m/%Y')"
+   txtFECHAFIN="$(date +'%d/%m/%Y')"
+fi
+
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+       
+        -d)
+                shift
+                txtFECHAINI=$1               
+                ;;
+        -h)
+               shift
+                txtFECHAFIN=$1             
+                ;;
+        esac
+shift
+done;
+
+
+URL=$"http://www.mercadodeliniers.com.ar/dll/hacienda1.dll/haciinfo000002?txtFECHAINI=$txtFECHAINI&txtFECHAFIN=$txtFECHAFIN&CP=&LISTADO=SI"
+
+procDocument=$(w3m -dump $URL)
+
 procDocument=$(echo "$procDocument" | awk 'NR > 7 { print }' | head -n -8 | sed '/-/,+1 d' | grep -v 'Totales')
 procDocument=$(echo "$procDocument" | awk '{for(i=NF;i>1;i=i-1) printf "%s ", $i; printf "%s\n", $1}'| sed 's/\$//g'| sed 's/\.//g'| sed 's/\,/./g')
 
@@ -32,3 +58,5 @@ salida="$salida$salidaSubCategoria"
 
 done
 echo {SubCategorias:["${salida::-1}" ]}
+
+
