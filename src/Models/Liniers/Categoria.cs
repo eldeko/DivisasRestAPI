@@ -8,6 +8,13 @@ namespace DivisasRESTAPI.Models.Liniers
     public class CategoriaContainer
     {
         public List<Categoria> Categorias { get; set; }
+        public DateTime? FechaDesde { get; set; }
+        public DateTime? FechaHasta { get; set; }
+        public decimal TotalContainerPrecioPromedio { get; set; }
+        public int TotalContainerCabezas { get; set; }
+        public decimal TotalContainerImporte { get; set; }
+        public decimal TotalContainerKgs { get; set; }
+        public decimal TotalContainerKgsProm { get; set; }
 
         public CategoriaContainer()
         {
@@ -19,7 +26,7 @@ namespace DivisasRESTAPI.Models.Liniers
     {
         public string NombreCategoria { get; set; }
         public decimal PrecioPromedioCategoria { get; set; }
-        public decimal TotalCabezasCategoria { get; set; }
+        public int TotalCabezasCategoria { get; set; }
         public decimal TotalImporteCategoria { get; set; }
         public decimal TotalKgsCategoria { get; set; }
         public decimal KgsPromedioCategoria { get; set; }

@@ -22,6 +22,5 @@ namespace DivisasRestApi.Services
 
             return mappedresult;
         }
-
     }
 }

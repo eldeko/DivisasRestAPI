@@ -37,7 +37,7 @@ namespace DivisasRestApi.Services
                divisa.Compra = response.Casa.Compra;
                divisa.Venta = response.Casa.Venta;
                divisa.Casa = response.Casa.Nombre;
-            divisa.Variacion = string.IsNullOrEmpty(response.Casa.Variacion) ? "-" : CheckIfNotNegative(response.Casa.Variacion);
+               divisa.Variacion = string.IsNullOrEmpty(response.Casa.Variacion) ? "-" : CheckIfNotNegative(response.Casa.Variacion);
             
             return divisa;
         }
