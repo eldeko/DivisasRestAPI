@@ -18,3 +18,7 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "DivisasRESTAPI.dll"]
+
+
+RUN apt-get update && apt-get install -y w3m && apt-get clean
+RUN chmod +x /app/BashScripts/getLiniers.sh
