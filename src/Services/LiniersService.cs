@@ -89,19 +89,20 @@ namespace DivisasRESTAPI.Services
             }
 
             ProcessTotalsAndAvgs(container);
-          
+
+            #region Convertidor a Tabla 
             //DESCOMENTAR PARA DEVOLVER TABLA HTML
             //StringBuilder sb = new StringBuilder();
 
             //using (Table table = new Table(sb))
             //{
-               
+
             //    //table.AddHeaderRow();
             //    foreach (var categoria in container.Categorias)
             //    { table.StartTableBody();
             //        using (Helpers.Row row = table.AddHeaderRow())
             //        {
-                        
+
             //            row.AddCell(categoria.NombreCategoria);
             //            row.AddCell("");
             //            row.AddCell("Precio" + "<br/>" + "Minimo");
@@ -112,7 +113,7 @@ namespace DivisasRESTAPI.Services
             //            row.AddCell("Importe");
             //            row.AddCell("Kgs.");
             //            row.AddCell("Promedio" + "<br/>" + "Kgs.");
-                       
+
             //            foreach (var subcategoria in categoria.Subcategorias)
             //            {                        
             //                table.AddRow();
@@ -168,7 +169,7 @@ namespace DivisasRESTAPI.Services
             //}
 
             //string finishedTable = sb.ToString();
-
+            #endregion
             return container;
         }
 

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace DivisasRESTAPI.Helpers
 {
+    //To be removed
     public class ShellHelper : IShellHelper
     {
 

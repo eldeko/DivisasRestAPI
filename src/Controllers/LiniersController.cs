@@ -1,6 +1,5 @@
 ﻿using DivisasRESTAPI.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace DivisasRESTAPI.Controllers
 {
@@ -18,8 +17,7 @@ namespace DivisasRESTAPI.Controllers
         {
             var res = _liniersService.GetLiniersDataAsync(desde, hasta);
 
-            return Ok(res);
-            
+            return Ok(res);            
         }
     }
 }

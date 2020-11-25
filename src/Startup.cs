@@ -46,7 +46,7 @@ namespace DivisasRestApi
 
             // Services that consume EF Core objects (DbContext) should be registered as Scoped
             // (see https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection#registering-your-own-services)
-           services.AddScoped<IDolarSiService, DolarSiService>();
+            services.AddScoped<IDolarSiService, DolarSiService>();
             services.AddScoped<ILiniersService, LiniersService>();
         }
 
@@ -61,7 +61,6 @@ namespace DivisasRestApi
             app.UseExceptionHandler(new ExceptionHandlerOptions { ExceptionHandler = jsonExceptionMiddleware.Invoke });
 
             app.UseMvc();
-        }
-        
+        }        
     }
 }
