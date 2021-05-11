@@ -39,16 +39,16 @@ Categoria=""
 for lines in $procDocument; do
 
 
-					NombreSubCategoria=$(echo "$lines" | awk  '{for (i=NF;i>8;i--) print $i}')
-				  Categoria=$(echo $NombreSubCategoria | awk  -F' ' '{print $1}')
-						 KgsProm=$(echo "$lines" | awk  '{print $1}')
-							 Kgs=$(echo "$lines" | awk  '{print $2}')
-						 Importe=$(echo "$lines" | awk  '{print $3}')
- 						 Cabezas=$(echo "$lines" | awk  '{print $4}')
-					     Mediana=$(echo "$lines" | awk  '{print $5}')
-						Promedio=$(echo "$lines" | awk  '{print $6}')
-						  Maximo=$(echo "$lines" | awk  '{print $7}')
-						  Minimo=$(echo "$lines" | awk  '{print $8}')
+			      NombreSubCategoria=$(echo "$lines" | awk  '{for (i=NF;i>8;i--) print $i}')
+			    Categoria=$(echo $NombreSubCategoria | awk  -F' ' '{print $1}')
+					 KgsProm=$(echo "$lines" | awk  '{print $1}')
+					     Kgs=$(echo "$lines" | awk  '{print $2}')
+					 Importe=$(echo "$lines" | awk  '{print $3}')
+					 Cabezas=$(echo "$lines" | awk  '{print $4}')
+					 Mediana=$(echo "$lines" | awk  '{print $5}')
+					Promedio=$(echo "$lines" | awk  '{print $6}')
+					  Maximo=$(echo "$lines" | awk  '{print $7}')
+					  Minimo=$(echo "$lines" | awk  '{print $8}')
 	  
 
 salidaSubCategoria=$(echo \{NombreSubCategoria: \"""$NombreSubCategoria""\", NombreCategoria : \"""$Categoria""\", Minimo : \"""$Minimo""\", Maximo : \"""$Maximo""\",Promedio: \"""$Promedio""\", Mediana : \"""$Mediana""\", Cabezas : \"""$Cabezas""\" ,Importe : \"""$Importe""\", Kgs : \"""$Kgs""\", KgsProm : \"""$KgsProm""\" \}, )
